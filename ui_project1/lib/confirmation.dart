@@ -13,7 +13,7 @@ class Confirmation extends StatelessWidget {
               child: Text('Tesla', style: TextStyle(fontSize: 60)),
             ),
             Container(
-              child: Text('Order Confirmed',style:TextStyle(fontSize: 20)),
+              child: Text('Thank you for purchasing.',style:TextStyle(fontSize: 20)),
             ),
             Container(
               child: Text(
