@@ -17,26 +17,25 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(brightness: Brightness.dark),
       home: Scaffold(
-        body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(child: Image.asset('assets\\images\\TeslaLogo.jpeg',)),
-              Center(
-                child: RaisedButton(
-                  child: Text(
-                    'Custom Order',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CustomOrder()),
-                    );
-                  }),
+        body: Column(children: <Widget>[
+          Image.asset('assets\\images\\TeslaLogo.jpeg'),
+        ]),
+        floatingActionButton: Container(
+          margin: EdgeInsets.only(right: 115.0, bottom: 60.0), 
+          child: RaisedButton(
+              child: Text(
+                'Continue',
+                style: TextStyle(fontSize: 25),
               ),
-            ]),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CustomOrder()),
+                );
+              }),
+        ),
       ),
     );
   }
