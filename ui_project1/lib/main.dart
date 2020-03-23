@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_project1/customOrder.dart';
 
 void main() => runApp(TeslaApp());
 
@@ -15,25 +16,6 @@ class TeslaApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-<<<<<<< Updated upstream
-    return Center(
-       child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: Text('TESLA', style: TextStyle(fontSize: 60)
-              ),
-            ),
-            RaisedButton(
-              onPressed: null,
-              child: Text(
-                'Custom Order', style: TextStyle(fontSize: 20),
-              ),
-            ),
-          ]
-          ),
-=======
     return MaterialApp(
       home: Scaffold(
         body: Column(
@@ -56,7 +38,6 @@ class HomePage extends StatelessWidget {
               ),
             ]),
       ),
->>>>>>> Stashed changes
     );
   }
 }
