@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ui_project1/customOrder.dart';
+import './customOrder.dart';
 
 class OptionalFeatures extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class OptionalFeatures extends StatefulWidget {
 
 class _OptionalFeaturesState extends State<OptionalFeatures> {
   @override
-  int cost = 0;
+  int cost;
   model teslaModel = null;
   String teslaColor = 'White';
   int colorCost = 0;
@@ -29,6 +29,7 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
   int rangeCost = 0;
   String teslaAutopilot = 'Not Active';
   int autopilotCost = 0;
+  int totalCost = 0;
 
   _OptionalFeaturesState(int price, model teslaType) {
     cost = price;
@@ -42,15 +43,24 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
           title: Text('Optional Features'),
           backgroundColor: Colors.red,
         ),
-        body: Column(
+        body: SingleChildScrollView(child: Column(
           children: <Widget>[
+            Container(
+              height: 15.0,
+            ),
             Row(
               children: <Widget>[
                 Container(
-                    child: Text('Color ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ))),
+                  width: 5.0,
+                ),
+                Container(
+                    child: Text(
+                  'Color: ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                )),
+                Container(
+                  width: 15.0,
+                ),
                 DropdownButton<String>(
                   value: teslaColor,
                   icon: Icon(Icons.arrow_drop_down),
@@ -69,18 +79,31 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   }).toList(),
                 ),
                 Container(
-                    child: Text('                '),
+                  width: 60.0,
+                ),
+                Container(
+                    child: Text('                   '),
                     color: selectedColor(teslaColor)),
+                Container(
+                  width: 70.0,
+                ),
                 Text(colorPrice(teslaColor)),
               ],
+            ),
+            Container(
+              height: 30.0,
             ),
             Row(
               children: <Widget>[
                 Container(
-                    child: Text('Wheels ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ))),
+                  width: 5.0,
+                ),
+                Container(
+                  child: Text(
+                    'Wheels: ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                ),
                 DropdownButton<String>(
                   value: teslaWheel,
                   icon: Icon(Icons.arrow_drop_down),
@@ -102,20 +125,32 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   }).toList(),
                 ),
                 Container(
+                  width: 20.0,
+                ),
+                Container(
                     child: Image.asset(
                   selectedWheel(teslaWheel),
                   height: 65.0,
                 )),
+                Container(
+                  width: 70.0,
+                ),
                 Text(wheelPrice(teslaWheel)),
               ],
+            ),
+            Container(
+              height: 30.0,
             ),
             Row(
               children: <Widget>[
                 Container(
-                    child: Text('Interior ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ))),
+                  width: 5.0,
+                ),
+                Container(
+                    child: Text(
+                  'Interior: ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                )),
                 DropdownButton<String>(
                   value: teslaInterior,
                   icon: Icon(Icons.arrow_drop_down),
@@ -136,18 +171,33 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   }).toList(),
                 ),
                 Container(
-                    child: Text('                '),
+                  width: 60.0,
+                ),
+                Container(
+                    child: Text('                   '),
                     color: selectedColor(teslaInterior)),
+                Container(
+                  width: 70.0,
+                ),
                 Text(interiorPrice(teslaInterior)),
               ],
+            ),
+            Container(
+              height: 30.0,
             ),
             Row(
               children: <Widget>[
                 Container(
-                    child: Text('Range ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ))),
+                  width: 5.0,
+                ),
+                Container(
+                    child: Text(
+                  'Range: ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                )),
+                Container(
+                  width: 10.0,
+                ),
                 DropdownButton<String>(
                   value: teslaRange,
                   icon: Icon(Icons.arrow_drop_down),
@@ -168,17 +218,26 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                     );
                   }).toList(),
                 ),
+                Container(
+                  width: 5.0,
+                ),
                 Container(child: Text(selectedRange(teslaRange))),
                 Text(rangePrice(teslaRange)),
               ],
             ),
+            Container(
+              height: 30.0,
+            ),
             Row(
               children: <Widget>[
                 Container(
-                    child: Text('Autopilot ',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ))),
+                  width: 5.0,
+                ),
+                Container(
+                    child: Text(
+                  'Autopilot: ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                )),
                 DropdownButton<String>(
                   value: teslaAutopilot,
                   icon: Icon(Icons.arrow_drop_down),
@@ -198,21 +257,36 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                     );
                   }).toList(),
                 ),
+                Container(
+                  width: 15.0,
+                ),
                 Container(child: Text(selectedAutopilot(teslaAutopilot))),
+                Container(
+                  width: 15.0,
+                ),
                 Text(autopilotPrice(teslaAutopilot)),
               ],
             ),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: <Widget>[
-                  RaisedButton(
-                      child: Text(
-                        'Continue',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      onPressed: null),
-                  RaisedButton(
+            Container(
+              height: 30.0,
+            ),
+            Center(
+              child: Text(
+                'Total Cost: \$ ' + calculateTotal(),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Container(
+              height: 100.0,
+            ),
+            Row(
+              children: <Widget>[
+                Container(width: 60.0),
+                SizedBox(
+                  width: 125.0,
+                  child: RaisedButton(
+                    color: Colors.red,
+                    textColor: Colors.black,
                     child: Text(
                       'Back',
                       style: TextStyle(fontSize: 20),
@@ -220,11 +294,23 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                  )
-                ],
-              ),
+                  ),
+                ),
+                Container(width: 25.0),
+                SizedBox(
+                    width: 125.0,
+                    child: RaisedButton(
+                        color: Colors.red,
+                        textColor: Colors.black,
+                        child: Text(
+                          'Continue',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onPressed: null)),
+              ],
             )
           ],
+        ),
         ),
       ),
     );
@@ -305,13 +391,13 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
 
   String selectedRange(String range) {
     if (range == 'Standard') {
-      return 'Range: 250mi\nTop Speed: 140   \n0-60: 5.3s';
+      return 'Range: 250mi\nTop Speed: 140mph   \n0-60: 5.3s';
     } else if (range == 'Long Range') {
-      return 'Range: 300mi\nTop Speed: 145   \n0-60: 4.4s';
+      return 'Range: 300mi\nTop Speed: 145mph   \n0-60: 4.4s';
     } else if (range == 'Performance') {
-      return 'Range: 322mi\nTop Speed: 145   \n0-60: 3.2s';
+      return 'Range: 322mi\nTop Speed: 145mph   \n0-60: 3.2s';
     } else {
-      return 'Range: 250mi\nTop Speed: 140   \n0-60: 5.3s';
+      return 'Range: 250mi\nTop Speed: 140mph   \n0-60: 5.3s';
     }
   }
 
@@ -352,5 +438,11 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
       autopilotCost = 0;
       return '+ \$ 0';
     }
+  }
+
+  String calculateTotal() {
+    totalCost =
+        cost + colorCost + wheelCost + interiorCost + rangeCost + autopilotCost;
+    return totalCost.toString();
   }
 }

@@ -23,10 +23,12 @@ class HomePage extends StatelessWidget {
           Image.asset('assets\\images\\TeslaLogo.jpeg'),
         ]),
         floatingActionButton: Container(
-          margin: EdgeInsets.only(right: 115.0, bottom: 60.0), 
+          margin: EdgeInsets.only(right: 85.0, bottom: 60.0), 
           child: RaisedButton(
+            color: Colors.red,
+            textColor: Colors.black,
               child: Text(
-                'Continue',
+                'Custom Order',
                 style: TextStyle(fontSize: 25),
               ),
               onPressed: () {
