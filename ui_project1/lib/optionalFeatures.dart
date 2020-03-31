@@ -318,7 +318,8 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => UserInformation(
-                                        totalCost, teslaModel, quantity)));
+                                        totalCost, teslaModel, quantity,teslaColor,teslaInterior,
+                                        teslaWheel,teslaAutopilot,teslaRange)));
                           })),
                 ],
               ),
