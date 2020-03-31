@@ -26,16 +26,14 @@ class _UserInformationState extends State<UserInformation> {
   
   String fName;
   String lName;
-  String address;
-  String area;
+  String emailAddress;
   int phoneNumber;
 
   String nameOnCard;
-  int cardNumber;
-  int expMonth;
-  int expYear;
-  int cvv;
-  int billingZipCode;
+  String cardNumber;
+  String expDate;
+  String cvv;
+  String billingZipCode;
 
   _UserInformationState(int price, model teslaType, int quantity) {
     cost = price;
@@ -51,8 +49,80 @@ class _UserInformationState extends State<UserInformation> {
           title: Text("User Information"),
           backgroundColor: Colors.red,
         ),
-              body: Column(children: <Widget>[
-          Image.asset('assets\\images\\TeslaLogo.jpeg'),
+        body: Column(
+          children: <Widget>[
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'First Name'),
+                  )
+            ),
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Last Name'),
+                  )
+            ),            
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Email Address'),
+                  )
+            ),            
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Phone Number'),
+                  )
+            ),            
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Name on Card'),
+                  )
+            ),            
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Card Number'),
+                  )
+            ),
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Expiration Date (MM\YY)'),
+                  )
+            ),            
+            Container(
+              child: TextField(
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  hintText: 'Billing Zip Code'),
+                  )
+            ),
         ]),
         floatingActionButton: Container(
           margin: EdgeInsets.only(right: 115.0, bottom: 60.0), 
@@ -64,7 +134,7 @@ class _UserInformationState extends State<UserInformation> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Summary(address, area, cost, quantity)),
+                  MaterialPageRoute(builder: (context) => Summary(emailAddress, billingZipCode, cost, quantity)),
                 );
               }),
         ),),
