@@ -209,7 +209,7 @@ class _CustomOrderState extends State<CustomOrder> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    OptionalFeatures(totalPrice, _teslaModel)));
+                                    OptionalFeatures(totalPrice, _teslaModel, quantity)));
                       }),
                 ),
               ],

@@ -4,28 +4,28 @@ import './main.dart';
 class Confirmation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
+    return MaterialApp(
+      theme: ThemeData(brightness: Brightness.dark),
+      home: Scaffold(
+      body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: Text('Tesla', style: TextStyle(fontSize: 60)),
+              child: Image.asset('assets\\images\\TeslaLogo.jpeg'),
             ),
             Container(
-              child: Text('Thank you for purchasing.',style:TextStyle(fontSize: 20)),
-            ),
-            Container(
-              child: Text(
-                'A confirmation email has been sent to your email address.',style:TextStyle(fontSize: 20)
-                
-              ),
+              child: Text('Thank you for purchasing.',
+                  style: TextStyle(fontSize: 20)),
             ),
             Container(
               child: Text(
-                'Your custom order will arrive in 3-5 weeks',style:TextStyle(fontSize: 20)
-                
-              ),
+                  'A confirmation email has been sent to your email address.',
+                  style: TextStyle(fontSize: 20)),
+            ),
+            Container(
+              child: Text('Your custom order will arrive in 3-5 weeks',
+                  style: TextStyle(fontSize: 20)),
             ),
             RaisedButton(
                 child: Text(
@@ -39,6 +39,6 @@ class Confirmation extends StatelessWidget {
                   );
                 }),
           ]),
-    );
+    ));
   }
 }
