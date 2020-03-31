@@ -12,8 +12,8 @@ class CustomOrder extends StatefulWidget {
 class _CustomOrderState extends State<CustomOrder> {
   @override
   model _teslaModel = model.modelS;
-  int price = 0;
-  int totalPrice = 0;
+  int price = 74490;
+  int totalPrice = 74490;
   int quantity = 1;
 
   Widget build(BuildContext context) {
@@ -39,6 +39,7 @@ class _CustomOrderState extends State<CustomOrder> {
                     setState(() {
                       _teslaModel = value;
                       price = 74490;
+                      totalPrice = price;
                     });
                   }),
             ),
@@ -54,6 +55,7 @@ class _CustomOrderState extends State<CustomOrder> {
                     setState(() {
                       _teslaModel = value;
                       price = 35690;
+                      totalPrice = price;
                     });
                   }),
             ),
@@ -69,6 +71,7 @@ class _CustomOrderState extends State<CustomOrder> {
                     setState(() {
                       _teslaModel = value;
                       price = 79690;
+                      totalPrice = price;
                     });
                   }),
             ),
@@ -84,6 +87,7 @@ class _CustomOrderState extends State<CustomOrder> {
                     setState(() {
                       _teslaModel = value;
                       price = 48690;
+                      totalPrice = price;
                     });
                   }),
             ),
@@ -99,6 +103,7 @@ class _CustomOrderState extends State<CustomOrder> {
                     setState(() {
                       _teslaModel = value;
                       price = 39900;
+                      totalPrice = price;
                     });
                   }),
             ),

@@ -48,291 +48,282 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
           title: Text('Optional Features'),
           backgroundColor: Colors.red,
         ),
-        body: SingleChildScrollView(child: Column(
-          children: <Widget>[
-            Container(
-              height: 15.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 5.0,
-                ),
-                Container(
-                    child: Text(
-                  'Color: ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                )),
-                Container(
-                  width: 15.0,
-                ),
-                DropdownButton<String>(
-                  value: teslaColor,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 20,
-                  onChanged: (String newColor) {
-                    setState(() {
-                      teslaColor = newColor;
-                    });
-                  },
-                  items: <String>['White', 'Black', 'Silver', 'Blue', 'Red']
-                      .map<DropdownMenuItem<String>>((String color) {
-                    return DropdownMenuItem(
-                      child: Text(color),
-                      value: color,
-                    );
-                  }).toList(),
-                ),
-                Container(
-                  width: 60.0,
-                ),
-                Container(
-                    child: Text('                   '),
-                    color: selectedColor(teslaColor)),
-                Container(
-                  width: 70.0,
-                ),
-                Text(colorPrice(teslaColor)),
-              ],
-            ),
-            Container(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 5.0,
-                ),
-                Container(
-                  child: Text(
-                    'Wheels: ',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  ),
-                ),
-                DropdownButton<String>(
-                  value: teslaWheel,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 20,
-                  onChanged: (String newWheel) {
-                    setState(() {
-                      teslaWheel = newWheel;
-                    });
-                  },
-                  items: <String>[
-                    'Factory',
-                    'Sport',
-                    'Slip Stream',
-                  ].map<DropdownMenuItem<String>>((String wheel) {
-                    return DropdownMenuItem(
-                      child: Text(wheel),
-                      value: wheel,
-                    );
-                  }).toList(),
-                ),
-                Container(
-                  width: 20.0,
-                ),
-                Container(
-                    child: Image.asset(
-                  selectedWheel(teslaWheel),
-                  height: 65.0,
-                )),
-                Container(
-                  width: 70.0,
-                ),
-                Text(wheelPrice(teslaWheel)),
-              ],
-            ),
-            Container(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 5.0,
-                ),
-                Container(
-                    child: Text(
-                  'Interior: ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                )),
-                DropdownButton<String>(
-                  value: teslaInterior,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 20,
-                  onChanged: (String newInterior) {
-                    setState(() {
-                      teslaInterior = newInterior;
-                    });
-                  },
-                  items: <String>[
-                    'Black',
-                    'White',
-                  ].map<DropdownMenuItem<String>>((String interior) {
-                    return DropdownMenuItem(
-                      child: Text(interior),
-                      value: interior,
-                    );
-                  }).toList(),
-                ),
-                Container(
-                  width: 60.0,
-                ),
-                Container(
-                    child: Text('                   '),
-                    color: selectedColor(teslaInterior)),
-                Container(
-                  width: 70.0,
-                ),
-                Text(interiorPrice(teslaInterior)),
-              ],
-            ),
-            Container(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 5.0,
-                ),
-                Container(
-                    child: Text(
-                  'Range: ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                )),
-                Container(
-                  width: 10.0,
-                ),
-                DropdownButton<String>(
-                  value: teslaRange,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 20,
-                  onChanged: (String newRange) {
-                    setState(() {
-                      teslaRange = newRange;
-                    });
-                  },
-                  items: <String>[
-                    'Standard',
-                    'Long Range',
-                    'Performance',
-                  ].map<DropdownMenuItem<String>>((String range) {
-                    return DropdownMenuItem(
-                      child: Text(range),
-                      value: range,
-                    );
-                  }).toList(),
-                ),
-                Container(
-                  width: 5.0,
-                ),
-                Container(child: Text(selectedRange(teslaRange))),
-                Text(rangePrice(teslaRange)),
-              ],
-            ),
-            Container(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(
-                  width: 5.0,
-                ),
-                Container(
-                    child: Text(
-                  'Autopilot: ',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                )),
-                DropdownButton<String>(
-                  value: teslaAutopilot,
-                  icon: Icon(Icons.arrow_drop_down),
-                  iconSize: 20,
-                  onChanged: (String newAutopilot) {
-                    setState(() {
-                      teslaAutopilot = newAutopilot;
-                    });
-                  },
-                  items: <String>[
-                    'Not Active',
-                    'Active',
-                  ].map<DropdownMenuItem<String>>((String autopilot) {
-                    return DropdownMenuItem(
-                      child: Text(autopilot),
-                      value: autopilot,
-                    );
-                  }).toList(),
-                ),
-                Container(
-                  width: 15.0,
-                ),
-                Container(child: Text(selectedAutopilot(teslaAutopilot))),
-                Container(
-                  width: 15.0,
-                ),
-                Text(autopilotPrice(teslaAutopilot)),
-              ],
-            ),
-            Container(
-              height: 30.0,
-            ),
-            Center(
-              child: Text(
-                'Total Cost: \$ ' + calculateTotal(),
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 15.0,
               ),
-            ),
-            Container(
-              height: 100.0,
-            ),
-            Row(
-              children: <Widget>[
-                Container(width: 60.0),
-                SizedBox(
-                  width: 125.0,
-                  child: RaisedButton(
-                    color: Colors.red,
-                    textColor: Colors.black,
-            Expanded(
-              flex: 2,
-              child: Column(
+              Row(
                 children: <Widget>[
-                  RaisedButton(
+                  Container(
+                    width: 5.0,
+                  ),
+                  Container(
                       child: Text(
-                        'Continue',
+                    'Color: ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  )),
+                  Container(
+                    width: 15.0,
+                  ),
+                  DropdownButton<String>(
+                    value: teslaColor,
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconSize: 20,
+                    onChanged: (String newColor) {
+                      setState(() {
+                        teslaColor = newColor;
+                      });
+                    },
+                    items: <String>['White', 'Black', 'Silver', 'Blue', 'Red']
+                        .map<DropdownMenuItem<String>>((String color) {
+                      return DropdownMenuItem(
+                        child: Text(color),
+                        value: color,
+                      );
+                    }).toList(),
+                  ),
+                  Container(
+                    width: 60.0,
+                  ),
+                  Container(
+                      child: Text('                   '),
+                      color: selectedColor(teslaColor)),
+                  Container(
+                    width: 70.0,
+                  ),
+                  Text(colorPrice(teslaColor)),
+                ],
+              ),
+              Container(
+                height: 30.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: 5.0,
+                  ),
+                  Container(
+                    child: Text(
+                      'Wheels: ',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                  ),
+                  DropdownButton<String>(
+                    value: teslaWheel,
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconSize: 20,
+                    onChanged: (String newWheel) {
+                      setState(() {
+                        teslaWheel = newWheel;
+                      });
+                    },
+                    items: <String>[
+                      'Factory',
+                      'Sport',
+                      'Slip Stream',
+                    ].map<DropdownMenuItem<String>>((String wheel) {
+                      return DropdownMenuItem(
+                        child: Text(wheel),
+                        value: wheel,
+                      );
+                    }).toList(),
+                  ),
+                  Container(
+                    width: 20.0,
+                  ),
+                  Container(
+                      child: Image.asset(
+                    selectedWheel(teslaWheel),
+                    height: 65.0,
+                  )),
+                  Container(
+                    width: 70.0,
+                  ),
+                  Text(wheelPrice(teslaWheel)),
+                ],
+              ),
+              Container(
+                height: 30.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: 5.0,
+                  ),
+                  Container(
+                      child: Text(
+                    'Interior: ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  )),
+                  DropdownButton<String>(
+                    value: teslaInterior,
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconSize: 20,
+                    onChanged: (String newInterior) {
+                      setState(() {
+                        teslaInterior = newInterior;
+                      });
+                    },
+                    items: <String>[
+                      'Black',
+                      'White',
+                    ].map<DropdownMenuItem<String>>((String interior) {
+                      return DropdownMenuItem(
+                        child: Text(interior),
+                        value: interior,
+                      );
+                    }).toList(),
+                  ),
+                  Container(
+                    width: 60.0,
+                  ),
+                  Container(
+                      child: Text('                   '),
+                      color: selectedColor(teslaInterior)),
+                  Container(
+                    width: 70.0,
+                  ),
+                  Text(interiorPrice(teslaInterior)),
+                ],
+              ),
+              Container(
+                height: 30.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: 5.0,
+                  ),
+                  Container(
+                      child: Text(
+                    'Range: ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  )),
+                  Container(
+                    width: 10.0,
+                  ),
+                  DropdownButton<String>(
+                    value: teslaRange,
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconSize: 20,
+                    onChanged: (String newRange) {
+                      setState(() {
+                        teslaRange = newRange;
+                      });
+                    },
+                    items: <String>[
+                      'Standard',
+                      'Long Range',
+                      'Performance',
+                    ].map<DropdownMenuItem<String>>((String range) {
+                      return DropdownMenuItem(
+                        child: Text(range),
+                        value: range,
+                      );
+                    }).toList(),
+                  ),
+                  Container(
+                    width: 5.0,
+                  ),
+                  Container(child: Text(selectedRange(teslaRange))),
+                  Text(rangePrice(teslaRange)),
+                ],
+              ),
+              Container(
+                height: 30.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(
+                    width: 5.0,
+                  ),
+                  Container(
+                      child: Text(
+                    'Autopilot: ',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  )),
+                  DropdownButton<String>(
+                    value: teslaAutopilot,
+                    icon: Icon(Icons.arrow_drop_down),
+                    iconSize: 20,
+                    onChanged: (String newAutopilot) {
+                      setState(() {
+                        teslaAutopilot = newAutopilot;
+                      });
+                    },
+                    items: <String>[
+                      'Not Active',
+                      'Active',
+                    ].map<DropdownMenuItem<String>>((String autopilot) {
+                      return DropdownMenuItem(
+                        child: Text(autopilot),
+                        value: autopilot,
+                      );
+                    }).toList(),
+                  ),
+                  Container(
+                    width: 15.0,
+                  ),
+                  Container(child: Text(selectedAutopilot(teslaAutopilot))),
+                  Container(
+                    width: 15.0,
+                  ),
+                  Text(autopilotPrice(teslaAutopilot)),
+                ],
+              ),
+              Container(
+                height: 30.0,
+              ),
+              Center(
+                child: Text(
+                  'Total Cost: \$ ' + calculateTotal(),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Container(
+                height: 100.0,
+              ),
+              Row(
+                children: <Widget>[
+                  Container(width: 60.0),
+                  SizedBox(
+                    width: 125.0,
+                    child: RaisedButton(
+                      color: Colors.red,
+                      textColor: Colors.black,
+                      child: Text(
+                        'Back',
                         style: TextStyle(fontSize: 20),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context, 
-                          MaterialPageRoute(
-                              builder: (context) => 
-                                UserInformation(cost, teslaModel, quantity)));
-                      }),
-                  RaisedButton(
-                    child: Text(
-                      'Back',
-                      style: TextStyle(fontSize: 20),
+                        Navigator.pop(context);
+                      },
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
                   ),
-                ),
-                Container(width: 25.0),
-                SizedBox(
-                    width: 125.0,
-                    child: RaisedButton(
-                        color: Colors.red,
-                        textColor: Colors.black,
-                        child: Text(
-                          'Continue',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onPressed: null)),
-              ],
-            )
-          ],
-        ),
+                  Container(width: 25.0),
+                  SizedBox(
+                      width: 125.0,
+                      child: RaisedButton(
+                          color: Colors.red,
+                          textColor: Colors.black,
+                          child: Text(
+                            'Continue',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => UserInformation(
+                                        totalCost, teslaModel, quantity)));
+                          })),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
