@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 
 import 'package:ui_project1/customOrder.dart';
+import 'package:ui_project1/userInformation.dart';
 
 class OptionalFeatures extends StatefulWidget {
   @override
   int price = 0;
   model teslaModel = null;
+  int quantity = 1;
 
-  OptionalFeatures(int cost, model teslaType) {
+  OptionalFeatures(int cost, model teslaType, int quantity) {
     price = cost;
     teslaModel = teslaType;
+    quantity = quantity;
   }
   _OptionalFeaturesState createState() =>
-      _OptionalFeaturesState(price, teslaModel);
+      _OptionalFeaturesState(price, teslaModel, quantity);
 }
 
 class _OptionalFeaturesState extends State<OptionalFeatures> {
   @override
   int cost = 0;
   model teslaModel = null;
+  int quantity = 1;
   String teslaColor = 'White';
   int colorCost = 0;
   String teslaWheel = 'Factory';
@@ -30,9 +34,10 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
   String teslaAutopilot = 'Not Active';
   int autopilotCost = 0;
 
-  _OptionalFeaturesState(int price, model teslaType) {
+  _OptionalFeaturesState(int price, model teslaType, int quantity) {
     cost = price;
     teslaModel = teslaType;
+    quantity = quantity;
   }
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -211,7 +216,13 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                         'Continue',
                         style: TextStyle(fontSize: 20),
                       ),
-                      onPressed: null),
+                      onPressed: () {
+                        Navigator.push(
+                          context, 
+                          MaterialPageRoute(
+                              builder: (context) => 
+                                UserInformation(cost, teslaModel, quantity)));
+                      }),
                   RaisedButton(
                     child: Text(
                       'Back',

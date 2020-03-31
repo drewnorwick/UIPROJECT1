@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:ui_project1/customOrder.dart';
 import './confirmation.dart';
-
-enum model { modelS, model3, modelX, modelY, cybertruck }
 
 class Summary extends StatelessWidget {
   final model chosenModel = model.cybertruck;
   final String address;
   final String area;
-  final double total;
-  final int amount;
+  final int total;
+  final int quantity;
 
-  Summary(this.address, this.area, this.total, this.amount);
+  Summary(this.address, this.area, this.total, this.quantity);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +21,7 @@ class Summary extends StatelessWidget {
           '\nChosen Model: ${chosenModel.toString()}\n',
           style: TextStyle(fontSize: 20),
         ),
-        Text('Amount: ${amount.toString()}\n\n\n',style: TextStyle(fontSize: 20)),
+        Text('Amount: ${quantity.toString()}\n\n\n',style: TextStyle(fontSize: 20)),
         Container(
           child: Text('data',style: TextStyle(fontSize: 20)),
         ),
