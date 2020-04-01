@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:ui_project1/summary.dart';
 import 'package:ui_project1/customOrder.dart';
@@ -41,14 +43,17 @@ class _UserInformationState extends State<UserInformation> {
   String fName;
   String lName;
   String emailAddress;
-  int phoneNumber;
+  String phoneNumber;
 
   String nameOnCard;
   String cardNumber;
   String expDate;
   String cvv;
   String address;
+  String city;
+  String state;
   String billingZipCode;
+  String zipCode;
 
   _UserInformationState(int price, model teslaType, int quantity,String color,String interior,String wheel,String auto,String range) {
     cost = price;
@@ -83,6 +88,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'First Name'),
+                    onChanged: (text) {
+                      fName = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -91,6 +99,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Last Name'),
+                    onChanged: (text) {
+                    lName = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -99,6 +110,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Email Address'),
+                    onChanged: (text) {
+                      emailAddress = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -107,6 +121,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Phone Number'),
+                    onChanged: (text) {
+                    phoneNumber = text;
+                  },
               )),              
               Text('Card Information',
                     style: TextStyle(fontSize: 20),
@@ -118,6 +135,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Name on Card'),
+                      onChanged: (text) {
+                      nameOnCard = text;
+                    },
                 )),
               Container(
                   child: TextField(
@@ -126,6 +146,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Card Number'),
+                      onChanged: (text) {
+                      cardNumber = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -134,6 +157,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Expiration Date (MM/YY)'),
+                      onChanged: (text) {
+                      expDate = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -142,6 +168,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'CVV'),
+                    onChanged: (text) {
+                    cvv = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -150,6 +179,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Billing Zip Code'),
+                    onChanged: (text) {
+                    billingZipCode = text;
+                    },
               )),
                          Text('Shipping Information',
                     style: TextStyle(fontSize: 20),
@@ -161,6 +193,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Address'),
+                    onChanged: (text) {
+                    address = text;
+                  },
                 )),
               Container(
                   child: TextField(
@@ -169,6 +204,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'City'),
+                    onChanged: (text) {
+                    city = text;
+                  },
               )),
               Container(
                   child: TextField(
@@ -177,6 +215,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'State'),
+                    onChanged: (text) {
+                    state = text;
+                    },
               )),
               Container(
                   child: TextField(
@@ -185,6 +226,9 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Zip Code'),
+                    onChanged: (text) {
+                    zipCode = text;
+                  },
               )),
            Container(
                 child: Row(
@@ -219,7 +263,7 @@ class _UserInformationState extends State<UserInformation> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Summary(teslaModel, address, billingZipCode, cost, quantity, color, wheel, auto, range, interior)));
+                                    Summary(teslaModel, emailAddress, fName, lName, address, city, state, zipCode, cost, quantity, color, wheel, auto, range, interior)));
                       }),
                 ),
             ]),

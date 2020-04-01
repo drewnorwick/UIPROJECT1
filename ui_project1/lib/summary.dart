@@ -4,8 +4,13 @@ import './confirmation.dart';
 
 class Summary extends StatelessWidget {
   final model chosenModel;
+  final String emailAddress;
+  final String fName;
+  final String lName;
   final String address;
-  final String area;
+  final String city;
+  final String state;
+  final String zipCode;
   final int total;
   final int quantity;
   final String color;
@@ -14,7 +19,7 @@ class Summary extends StatelessWidget {
   final String auto;
   final String range;
 
-  Summary(this.chosenModel, this.address, this.area, this.total, this.quantity,this.color,this.wheel,this.auto,this.range,this.interior);
+  Summary(this.chosenModel, this.emailAddress, this.fName, this.lName, this.address, this.city, this.state, this.zipCode, this.total, this.quantity,this.color,this.wheel,this.auto,this.range,this.interior);
   String setImage(model teslaModel) {
     if (teslaModel == model.model3) {
       return 'assets\\images\\model3.jfif';
@@ -43,17 +48,20 @@ class Summary extends StatelessWidget {
           body: Center(
             child: Column(children: <Widget>[
               Text(
-                '\nChosen ${chosenModel.toString()}',
-                style: TextStyle(fontSize: 20),
-              ),
+                'Order Details',
+                style: TextStyle(fontSize: 24),
+              ),              
               Container(
                 child: Image.asset(
                   setImage(chosenModel),
                   height: 175.0,
                 ),
               ),
-              Text('Quantity: ${quantity.toString()}\n\n',
-                  style: TextStyle(fontSize: 20)),
+              Text(
+                'Model: ${chosenModel.toString()}',
+                style: TextStyle(fontSize: 20),
+              ),
+
               Container(
                 child: Text('Color: ${color.toString()}', style: TextStyle(fontSize: 20)),
               ),
@@ -66,11 +74,17 @@ class Summary extends StatelessWidget {
                 child: Text('Range: ${range.toString()}', style: TextStyle(fontSize: 20)),
               ),
               Container(
-                child: Text('Interior: ${interior.toString()}\n', style: TextStyle(fontSize: 20)),
-              ),
-              Text('Address: ${address.toString()}',
+                child: Text('Interior: ${interior.toString()}', style: TextStyle(fontSize: 20)),
+              ),              
+              Text('Quantity: ${quantity.toString()}\n',
                   style: TextStyle(fontSize: 20)),
-              Text('Area: ${area.toString()}\n',
+              Text('Shipping Information',
+                  style: TextStyle(fontSize: 24)),
+              Text('${fName.toString()} ${lName.toString()}',
+                  style: TextStyle(fontSize: 20)),
+              Text('${address.toString()}',
+                  style: TextStyle(fontSize: 20)),
+              Text('${city.toString()}, ${state.toString()} ${zipCode.toString()}\n',
                   style: TextStyle(fontSize: 20)),
               Text('Total Price: \$${total.toString()}',
                   style: TextStyle(fontSize: 20)),
@@ -117,7 +131,7 @@ class Summary extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                Confirmation()));
+                                                Confirmation(fName, emailAddress)));
                                   },
                                 )),
                           ]),

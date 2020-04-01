@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import './main.dart';
 
 class Confirmation extends StatelessWidget {
+
+  final String fName;
+  final String emailAddress;
+  Confirmation(this.fName, this.emailAddress);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,12 +20,12 @@ class Confirmation extends StatelessWidget {
                   child: Image.asset('assets\\images\\TeslaLogo.jpeg'),
                 ),
                 Container(
-                  child: Text('Thank you for purchasing.',
+                  child: Text('Thank you for your purchase, ${fName.toString()}.',
                       style: TextStyle(fontSize: 20)),
                 ),
                 Container(
                   child: Text(
-                      'A confirmation email has been sent to your email address.',
+                      'A confirmation email has been sent to ${emailAddress.toString()}',
                       style: TextStyle(fontSize: 20)),
                 ),
                 Container(
