@@ -25,13 +25,13 @@ class UserInformation extends StatefulWidget {
     this.range=range;
   }
   _UserInformationState createState() =>
-      _UserInformationState(price, teslaModel, quantity,color,interior,wheel,auto,range);
+      _UserInformationState(price, teslaModel, quantity, color, interior, wheel, auto, range);
 }
 
 class _UserInformationState extends State<UserInformation> {
-  int cost = 0;
-  model teslaModel = null;
-  int quantity = 1;
+  int cost;
+  model teslaModel;
+  int quantity;
   String color;
   String interior;
   String wheel;
@@ -73,6 +73,9 @@ class _UserInformationState extends State<UserInformation> {
           body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(children: <Widget>[
+              Text('Personal Account Information',
+              style: TextStyle(fontSize: 20),
+              ),
               Container(
                   child: TextField(
                 decoration: InputDecoration(
@@ -104,7 +107,10 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Phone Number'),
-              )),
+              )),              
+              Text('Card Information',
+                    style: TextStyle(fontSize: 20),
+              ),
               Container(
                   child: TextField(
                 decoration: InputDecoration(
@@ -112,7 +118,7 @@ class _UserInformationState extends State<UserInformation> {
                       borderSide: BorderSide(color: Colors.white),
                     ),
                     hintText: 'Name on Card'),
-              )),
+                )),
               Container(
                   child: TextField(
                 decoration: InputDecoration(
@@ -135,7 +141,7 @@ class _UserInformationState extends State<UserInformation> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
                     ),
-                    hintText: 'Address'),
+                    hintText: 'CVV'),
               )),
               Container(
                   child: TextField(
@@ -145,36 +151,82 @@ class _UserInformationState extends State<UserInformation> {
                     ),
                     hintText: 'Billing Zip Code'),
               )),
-            
-             Container(
-              margin: EdgeInsets.only( bottom: 5.0),
-              child: RaisedButton(
-                  color: Colors.red,
-                  textColor: Colors.black,
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(fontSize: 20.0),
+                         Text('Shipping Information',
+                    style: TextStyle(fontSize: 20),
+              ),
+              Container(
+                  child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    hintText: 'Address'),
+                )),
+              Container(
+                  child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    hintText: 'City'),
+              )),
+              Container(
+                  child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    hintText: 'State'),
+              )),
+              Container(
+                  child: TextField(
+                decoration: InputDecoration(
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    hintText: 'Zip Code'),
+              )),
+           Container(
+                child: Row(
+              children: <Widget>[
+                Container(width: 60.0),
+                SizedBox(
+                  width: 125.0,
+                  child: RaisedButton(
+                    color: Colors.red,
+                    textColor: Colors.black,
+                    child: Text(
+                      'Back',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                   ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Summary(teslaModel,
-                              emailAddress, billingZipCode, cost, quantity,color,wheel,auto,range,interior)),
-                    );
-                  }),
-            ),RaisedButton(
-                              color: Colors.red,
-                              textColor: Colors.black,
-                              child: Text(
-                                'Back',
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
+                ),
+                Container(width: 25.0),
+                SizedBox(
+                  width: 125.0,
+                  child: RaisedButton(
+                      color: Colors.red,
+                      textColor: Colors.black,
+                      child: Text(
+                        'Continue',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Summary(teslaModel, address, billingZipCode, cost, quantity, color, wheel, auto, range, interior)));
+                      }),
+                ),
             ]),
-        )));
+        )
+      ]),
+        )
+    )
+    );
   }
 }

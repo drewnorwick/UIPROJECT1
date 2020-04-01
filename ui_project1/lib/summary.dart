@@ -52,7 +52,7 @@ class Summary extends StatelessWidget {
                   height: 175.0,
                 ),
               ),
-              Text('Amount: ${quantity.toString()}\n\n',
+              Text('Quantity: ${quantity.toString()}\n\n',
                   style: TextStyle(fontSize: 20)),
               Container(
                 child: Text('Color: ${color.toString()}', style: TextStyle(fontSize: 20)),
@@ -72,15 +72,26 @@ class Summary extends StatelessWidget {
                   style: TextStyle(fontSize: 20)),
               Text('Area: ${area.toString()}\n',
                   style: TextStyle(fontSize: 20)),
-              Text('Total Price: ${total.toString()}',
+              Text('Total Price: \$${total.toString()}',
                   style: TextStyle(fontSize: 20)),
             ]),
           ),
-          persistentFooterButtons: <Widget>[
+          persistentFooterButtons: <Widget>[ 
+            RaisedButton(
+              color: Colors.red,
+              textColor: Colors.black,
+              child: Text(
+                'Back',
+                 style: TextStyle(fontSize: 20),
+              ),
+            onPressed: () {
+              Navigator.pop(context);
+              },
+            ),
             RaisedButton(
                 color: Colors.red,
                 textColor: Colors.black,
-                child: Text("Order", style: TextStyle(fontSize: 20)),
+                child: Text("Place Order", style: TextStyle(fontSize: 20)),
                 onPressed: () {
                   showDialog(
                       context: context,
@@ -91,8 +102,8 @@ class Summary extends StatelessWidget {
                           child: Column(children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Text('Warning final submission.',
-                                  style: TextStyle(fontSize: 20)),
+                              child: Text('Warning: This is your final submission.',
+                                  style: TextStyle(fontSize: 14)),
                             ),
                             Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -112,17 +123,7 @@ class Summary extends StatelessWidget {
                           ]),
                         ));
                       });
-                }), RaisedButton(
-                              color: Colors.red,
-                              textColor: Colors.black,
-                              child: Text(
-                                'Back',
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            ),
+                }),
           ],
         ));
   }
