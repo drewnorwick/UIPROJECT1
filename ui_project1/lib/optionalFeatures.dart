@@ -7,12 +7,12 @@ class OptionalFeatures extends StatefulWidget {
   @override
   int price = 0;
   model teslaModel = null;
-  int quantity = 1;
+  int quantity ;
 
-  OptionalFeatures(int cost, model teslaType, int quantity) {
+  OptionalFeatures(int cost, model teslaType, int amount) {
     price = cost;
     teslaModel = teslaType;
-    quantity = quantity;
+    quantity = amount;
   }
   _OptionalFeaturesState createState() =>
       _OptionalFeaturesState(price, teslaModel, quantity);
@@ -38,7 +38,7 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
   _OptionalFeaturesState(int price, model teslaType, int quantity) {
     cost = price;
     teslaModel = teslaType;
-    quantity = quantity;
+    this.quantity = quantity;
   }
   Widget build(BuildContext context) {
     return MaterialApp(

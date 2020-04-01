@@ -8,7 +8,7 @@ class UserInformation extends StatefulWidget {
   @override
   int price = 0;
   model teslaModel = null;
-  int quantity = 1;
+  int quantity;
   String color;
   String interior;
   String wheel;
@@ -58,7 +58,7 @@ class _UserInformationState extends State<UserInformation> {
   _UserInformationState(int price, model teslaType, int quantity,String color,String interior,String wheel,String auto,String range) {
     cost = price;
     teslaModel = teslaType;
-    quantity = quantity;
+    this.quantity = quantity;
     this.color=color;
     this.interior=interior;
     this.wheel=wheel;

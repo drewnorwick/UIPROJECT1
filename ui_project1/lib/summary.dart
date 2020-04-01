@@ -112,12 +112,12 @@ class Summary extends StatelessWidget {
                       builder: (BuildContext context) {
                         return AlertDialog(
                             content: Container(
-                          height: 120.0,
+                          height: 130.0,
                           child: Column(children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text('Warning: This is your final submission.',
-                                  style: TextStyle(fontSize: 14)),
+                                  style: TextStyle(fontSize: 20)),
                             ),
                             Padding(
                                 padding: const EdgeInsets.all(8.0),
