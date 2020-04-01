@@ -15,6 +15,7 @@ class _CustomOrderState extends State<CustomOrder> {
   int price = 74490;
   int totalPrice = 74490;
   int quantity = 1;
+  double discount = 1.0;
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -138,7 +139,8 @@ class _CustomOrderState extends State<CustomOrder> {
                           onPressed: () {
                             setState(() {
                               quantity = addQuantity(quantity);
-                              totalPrice = price * quantity;
+                              discountCalc(quantity);
+                              totalPrice = (price * quantity * discount).toInt();
                             });
                           },
                         ),
@@ -158,7 +160,8 @@ class _CustomOrderState extends State<CustomOrder> {
                           onPressed: () {
                             setState(() {
                               quantity = subQuantity(quantity);
-                              totalPrice = price * quantity;
+                              discountCalc(quantity);
+                              totalPrice = (price * quantity * discount).toInt();
                             });
                           },
                         ),
@@ -168,16 +171,22 @@ class _CustomOrderState extends State<CustomOrder> {
                   Container(
                     margin: EdgeInsets.all(20.0),
                     child: Text(
-                      quantity.toString(),
+                      quantity.toString() , 
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
+                  Container(
+                    child: Text(
+                      discountString(quantity),
+                      style: TextStyle(fontSize: 13),
+                      ),
+                      ),
                 ],
               ),
             ),
             Center(
               child: Text(
-                '\$ ' + (price * quantity).toString(),
+                '\$ ' + (price * quantity * discount).toInt().toString(),
                 style: TextStyle(fontSize: 20),
               ),
             ),
@@ -253,5 +262,38 @@ class _CustomOrderState extends State<CustomOrder> {
       number = number - 1;
     }
     return number;
+  }
+
+  String discountString(int quantity)
+  {
+    if(quantity == 1)
+    {
+      return ' ';
+    }
+    else if(quantity > 1 && quantity < 10)
+    {
+      return '(' + quantity.toString() + '% discount)';
+    }
+    else
+    {
+      return ' (10% discount)';
+    }
+  }
+
+  void discountCalc(int quantity)
+  {
+    if(quantity == 1)
+    {
+      discount = 1.0;
+    }
+    else if(quantity > 1 && quantity < 10)
+    {
+      discount = 1 - (quantity/100);
+    }
+    else
+    {
+      discount = .9;
+    }
+    return;
   }
 }

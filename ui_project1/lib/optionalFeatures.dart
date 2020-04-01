@@ -54,20 +54,21 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
               Container(
                 height: 15.0,
               ),
+              Container(
+                margin: EdgeInsets.only(right: 300.0),
+                  child: Text('Color:',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
               Row(
                 children: <Widget>[
                   Container(
                     width: 5.0,
                   ),
                   Container(
-                      child: Text(
-                    'Color: ',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  )),
-                  Container(
                     width: 15.0,
                   ),
                   DropdownButton<String>(
+                    style: TextStyle(fontSize: 18),
                     value: teslaColor,
                     icon: Icon(Icons.arrow_drop_down),
                     iconSize: 20,
@@ -93,25 +94,24 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   Container(
                     width: 70.0,
                   ),
-                  Text(colorPrice(teslaColor)),
+                  Text(colorPrice(teslaColor), style: TextStyle(fontSize: 18),),
                 ],
               ),
               Container(
                 height: 30.0,
               ),
+              Container(
+                margin: EdgeInsets.only(right: 300.0),
+                  child: Text('Wheels:',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
               Row(
                 children: <Widget>[
                   Container(
-                    width: 5.0,
-                  ),
-                  Container(
-                    child: Text(
-                      'Wheels: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
+                    width: 15.0,
                   ),
                   DropdownButton<String>(
+                    style: TextStyle(fontSize: 18),
                     value: teslaWheel,
                     icon: Icon(Icons.arrow_drop_down),
                     iconSize: 20,
@@ -142,23 +142,25 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   Container(
                     width: 70.0,
                   ),
-                  Text(wheelPrice(teslaWheel)),
+                  Text(wheelPrice(teslaWheel,), style: TextStyle(fontSize: 18),
+                  ),
                 ],
               ),
               Container(
                 height: 30.0,
               ),
+              Container(
+                margin: EdgeInsets.only(right: 300.0),
+                  child: Text('Interior:',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
               Row(
                 children: <Widget>[
                   Container(
-                    width: 5.0,
+                    width: 15.0,
                   ),
-                  Container(
-                      child: Text(
-                    'Interior: ',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  )),
                   DropdownButton<String>(
+                    style: TextStyle(fontSize: 18),
                     value: teslaInterior,
                     icon: Icon(Icons.arrow_drop_down),
                     iconSize: 20,
@@ -186,26 +188,24 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   Container(
                     width: 70.0,
                   ),
-                  Text(interiorPrice(teslaInterior)),
+                  Text(interiorPrice(teslaInterior), style: TextStyle(fontSize: 18),),
                 ],
               ),
               Container(
                 height: 30.0,
               ),
+              Container(
+                margin: EdgeInsets.only(right: 300.0),
+                  child: Text('Range:',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
               Row(
                 children: <Widget>[
                   Container(
-                    width: 5.0,
-                  ),
-                  Container(
-                      child: Text(
-                    'Range: ',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  )),
-                  Container(
-                    width: 10.0,
+                    width: 15.0,
                   ),
                   DropdownButton<String>(
+                    style: TextStyle(fontSize: 18),
                     value: teslaRange,
                     icon: Icon(Icons.arrow_drop_down),
                     iconSize: 20,
@@ -229,23 +229,24 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                     width: 5.0,
                   ),
                   Container(child: Text(selectedRange(teslaRange))),
-                  Text(rangePrice(teslaRange)),
+                  Text(rangePrice(teslaRange), style: TextStyle(fontSize: 18),),
                 ],
               ),
               Container(
                 height: 30.0,
               ),
+              Container(
+                margin: EdgeInsets.only(right: 290.0),
+                  child: Text('Autopilot:',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20))),
               Row(
                 children: <Widget>[
                   Container(
-                    width: 5.0,
+                    width: 15.0,
                   ),
-                  Container(
-                      child: Text(
-                    'Autopilot: ',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                  )),
                   DropdownButton<String>(
+                    style: TextStyle(fontSize: 18),
                     value: teslaAutopilot,
                     icon: Icon(Icons.arrow_drop_down),
                     iconSize: 20,
@@ -271,7 +272,7 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                   Container(
                     width: 15.0,
                   ),
-                  Text(autopilotPrice(teslaAutopilot)),
+                  Text(autopilotPrice(teslaAutopilot), style: TextStyle(fontSize: 18),),
                 ],
               ),
               Container(
@@ -284,7 +285,7 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                 ),
               ),
               Container(
-                height: 100.0,
+                height: 40.0,
               ),
               Row(
                 children: <Widget>[
@@ -318,8 +319,14 @@ class _OptionalFeaturesState extends State<OptionalFeatures> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => UserInformation(
-                                        totalCost, teslaModel, quantity,teslaColor,teslaInterior,
-                                        teslaWheel,teslaAutopilot,teslaRange)));
+                                        totalCost,
+                                        teslaModel,
+                                        quantity,
+                                        teslaColor,
+                                        teslaInterior,
+                                        teslaWheel,
+                                        teslaAutopilot,
+                                        teslaRange)));
                           })),
                 ],
               ),
