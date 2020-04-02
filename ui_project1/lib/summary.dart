@@ -36,6 +36,22 @@ class Summary extends StatelessWidget {
     }
   }
 
+  String setModel(model teslaModel) {
+    if (teslaModel == model.model3) {
+      return 'Model 3';
+    } else if (teslaModel == model.modelS) {
+      return 'Model S';
+    } else if (teslaModel == model.modelX) {
+      return 'Model X';
+    } else if (teslaModel == model.modelY) {
+      return 'Model Y';
+    } else if (teslaModel == model.cybertruck) {
+      return 'Cybertruck';
+    } else {
+      return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -58,7 +74,7 @@ class Summary extends StatelessWidget {
                 ),
               ),
               Text(
-                'Model: ${chosenModel.toString()}',
+                'Model: ${setModel(chosenModel)}',
                 style: TextStyle(fontSize: 20),
               ),
 
